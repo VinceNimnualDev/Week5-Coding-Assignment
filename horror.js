@@ -1,24 +1,22 @@
-// Define class for Horror Movies
-class HorrorMovies {
+
+class HorrorMovies { // Define class for Horror Movies
     constructor(title, rating) {
         this.title =  title; // Store movie title
         this.rating = rating; // Store movie ratings
     }
 
-    //Method to generate movie description by title and rating
-    describe() {
+    describe() { 
+        //Method to generate movie description by title and rating
         return `${this.title} - Rating: ${this.rating}`; // Return title and movie when called
     }
 }
 
-// Define a class for the Menu app
-class Menu {
+class Menu { // Define a class for the Menu app
     constructor() {
         this.horrorMovies = []; // Set horrorMovies array as an empty set
     }
 
-    // Method to display menu options
-    displayMenu() {
+    displayMenu() {  // Method to display menu options
         console.log('Menu:'); // Print 'Menu' in Main Menu
         console.log('1. Create a Horror Movie List'); //  Print 'Create a Horror Movie List' in Main Menu
         console.log('2. View Horror Movie List'); // Print 'View Horor Movie List' from Main Menu
@@ -26,24 +24,22 @@ class Menu {
         console.log('4. Exit');
     }
 
-    createHorrorMovie() {
+    createHorrorMovie() { // Method to create and add a horror movie
         const title = prompt('Enter movie title:'); // Prints user input of movie title
         const rating = parseFloat(prompt('Enter the movie rating')); // Prints user input of rating. ParseFloat accepts decimal ratings for rating
         const movie = new HorrorMovies(title, rating); // Create new instance of HorrorMovie using title and rating as argument
         this.horrorMovies.push(movie); // Add new horror movie to array horrorMovies
         console.log(`${movie.describe()} added to the list`); // Displays confirmation of added movie to array 
     }
-    
-    //Method to view all horror movies in list
-    viewHorrorMovies() { 
+
+    viewHorrorMovies() {  //Method to view all horror movies in list
         console.log('List of Horror Movies:'); // Prints 'List of horror Movies:'
         this.horrorMovies.forEach((movie, index) => { // Iterates through all movies in array
             console.log(`${index + 1}. ${movie.describe()}`); // Starting with 1 will print out describe() method with all titles and ratings in array
         });
     }
 
-    // Method to delete a horror movie from the list by index
-    deleteHorrorMovie() {
+    deleteHorrorMovie() { // Method to delete a horror movie from the list by index
         const index = parseInt(prompt('Enter the index of movie to delete')) -1; // Prompts user to enter index of what movie they want deleted. It's -1 to adjust the index from starting from 0
         if (index >= 0 && index < this.horrorMovies.length) { // Checks if the index choses is a valid choice
             const deletedMovie = this.horrorMovies.splice(index, 1)[0]; // Removes movie from specified index
@@ -53,9 +49,7 @@ class Menu {
         }
     } 
 
-
-    // Method to start the menu
-    start() {
+    start() {   // Method to start the menu
         let choice;
         do {
             this.displayMenu(); // Display menu options
